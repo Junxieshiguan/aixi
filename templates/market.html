@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+
+    <h3> 闪购</h3>
+
+
+{% endblock %}
+{% block content %}
+    <div style="">wo de shangou </div>
+
+{% endblock %}
+{% block marketbtn %}
+<a href="{% url 'app:market' %}">
+    <img src="{% static 'img/market_selected.png' %}">
+    <span>闪购7</span>
+</a>
+{% endblock %}

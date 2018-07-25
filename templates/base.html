@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <style>
+
+        #header{
+            width: 100%;
+            height: 60px;
+            background-color:#f0e000;
+            border-bottom: 1px solid lightgray;
+            left: 0;
+            top: 0;
+        }
+        #header ,.footer{
+            position: fixed;
+        }
+
+        #header h3{
+            text-align: center;
+            line-height: 60px;
+            font-size: .5rem;
+            font-weight: normal;
+        }
+        .content{
+            width: 100%;
+            text-align: center;
+            height: 1000px;
+            background-color: #ffffff;
+        }
+        #footer{
+            height: 60px;
+            background-color: white;
+            bottom: 0;
+            left: 0;
+            border-top: 1px solid #ccc;
+        }
+        #footer a{
+            {#display: inline-block;#}
+            {#width: 5rem;#}
+            display: inline-block;
+            width: 2.5rem;
+            float: left;
+            text-align: center;
+            margin-top: .25rem;
+
+        }
+        #footer a:hover {
+            -webkit-tap-highlight-color: transparent;
+        }
+        #footer img{
+            width: 20px;
+
+
+        }
+        #footer a span, #footer a img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        #footer  a span{
+            font-size: .35rem;
+
+
+        }
+    </style>
+    <script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+    <script type="text/javascript">
+    
+    $(function () {
+        $screenWidth =$(window).innerWidth()
+        $('html').css('font-size',$screenWidth/10)
+
+    })
+    
+    
+    </script>
+</head>
+<body>
+<div class="header" id="header">
+{% block header%}
+
+    <h3>首页</h3>
+
+
+{% endblock %}
+</div>
+<div class="content">
+{% block content %}
+
+    <div style="">首页内容</div>
+
+{% endblock %}
+</div>
+{% block footer %}
+<div class="footer" id="footer" >
+    {% block homebtn %}
+        <a href="{% url 'app:home' %}">
+        <img src="{% static 'img/home.png' %}" alt="home">
+        <span>首页</span>
+    </a>
+    {% endblock %}
+
+    {% block  marketbtn%}
+        <a href="{% url 'app:market' %}">
+        <img src="{% static 'img/market.png' %}" alt="home">
+        <span>闪购</span>
+    </a>
+    {% endblock %}
+
+    {% block cartbtn%}
+        <a href="{% url 'app:cart' %}">
+        <img src="{% static 'img/cart.png' %}" alt="home">
+        <span>购物车</span>
+    </a>
+    {% endblock %}
+
+    {% block  minebtn%}
+        <a href="{% url 'app:main' %}">
+        <img src="{% static 'img/mine.png' %}" alt="home">
+        <span>我的</span>
+    </a>
+    {% endblock %}
+
+
+
+
+</div>
+{% endblock %}
+</body>
+</html>
